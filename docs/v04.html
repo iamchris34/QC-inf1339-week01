@@ -21,8 +21,18 @@
     function display(number) {
         // for now just display the number in a <p> element
         document.getElementById("decimal_input").innerHTML=number
-        var bcd = dec2binLame(number)
-        document.getElementById("binary_output").innerHTML=bcd
+        var bin = dec2binLame(number)
+        document.getElementById("binary_output").innerHTML=bin
+        
+        // send binary number to function bin2ssd
+        document.getElementById("bin2ssd_input").innerHTML=bin
+        var ssd = bin2ssd(bin)
+        document.getElementById("bin2ssd_output").innerHTML=ssd
+        
+        // send ssd signals to function illuminate_segments()
+        document.getElementById("illuminate_input").innerHTML=ssd
+        illuminate(ssd)
+        document.getElementById("illuminate_output").innerHTML='done'
     }
     
     function dec2bin (decimal) {
@@ -37,6 +47,10 @@
             }
             quotient = Math.floor(x / 2)
         }
+        while (output.length < 4) {
+            output = '0' + output
+        }
+        return(output)
     }
     
     function dec2binLame(decimal) {
@@ -66,8 +80,14 @@
                 <p id = "decimal_input">???</p>
                 <p id = "binary_output">???</p>
             </td>
-            <td class="blackbox">Binary to SSB Signals</td>
-            <td class="blackbox">Illuminate Segments</td>
+            <td class="blackbox"><h3>Binary to SSB Signals</h3>
+                <p id = "binary2ssd_input"></p>
+                <p id = "binary2sdd_output"></p>
+            </td>
+            <td class="blackbox"><h3>Illuminate Segments</h3>
+                <p id = "illuminate_input"></p>
+                <p id = "illuminate_output"></p>
+            </td>
         </tr>
     </table>
 </body>

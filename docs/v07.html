@@ -11,11 +11,6 @@
                 background-color: black;
                 border-color: white;
                 color: yellow;}
-    button {
-       
-        
-    }
-    
 </style>
 <script>
     function display(number) {
@@ -34,20 +29,18 @@
         illuminate(ssd)
         document.getElementById("illuminate_output").innerHTML='done'
     }
-    function bin2ssd(binary) {
-        return ('1000000')
-    }
+    
     function dec2bin (decimal) {
-        var x = decimal
+        var quotient = decimal
         var output = ''
-        while (x !== 0) {
-            remainder = x % 2
+        while (quotient > 0) {
+            remainder = quotient % 2
             if (remainder == 1) {
                 output = '1' + output
             } else {
                 output = '0' + output
             }
-            quotient = Math.floor(x / 2)
+            quotient = Math.floor(quotient / 2)
         }
         while (output.length < 4) {
             output = '0' + output

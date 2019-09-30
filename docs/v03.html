@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Version 02</title>
+<style>
+    p {
+        
+    }
+</style>
+<script>
+    
+    function display(number) {
+        // for now just display the number in a <p> element
+        document.getElementById("decimal_input").innerHTML=number
+        var bin = dec2binLame(number)
+        document.getElementById("binary_output").innerHTML=bin
+        
+        // send binary number to function bin2ssd
+        document.getElementById("bin2ssd_input").innerHTML=bin
+        var ssd = bin2ssd(bin)
+        document.getElementById("bin2ssd_output").innerHTML=ssd
+        
+        // send ssd signals to function illuminate_segments()
+        document.getElementById("illuminate_input").innerHTML=ssd
+        illuminate(ssd)
+        document.getElementById("illuminate_output").innerHTML='done'
+    }
+    
+    </script>
+</head>
+<body>
+    <h2> Version 3 </h2>
+    <h4>Keypad Input</h4>
+    <button type = "button"> 1 </button>
+    <button type = "button"> 2 </button>
+    <button type = "button"> 3 </button> <br \>
+    <button type = "button"> 4 </button>
+    <button type = "button"> 5 </button>
+    <button type = "button"> 6 </button> <br \>
+    <button type = "button"> 7 </button>
+    <button type = "button"> 8 </button>
+    <button type = "button"> 9 </button> <br \>
+    <button type = "button"> 0 </button>
+    
+    <h4>Convert Decimal to Binary</h4>
+    <h4>Convert Binary to Segments to illuminate</h4>
+    <h4>illuminate Segments</h4>
+</body>
+</html>
